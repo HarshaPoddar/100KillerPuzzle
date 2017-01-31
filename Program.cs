@@ -14,27 +14,27 @@ namespace Puzzle
             int TotalPeople = Number.Length;
             if (TotalPeople == 1)
                 return Number[0];
-            int[] NewArray = new int[(TotalPeople + 1) / 2];
-            int NewArrayIndex = 0;
+            int[] NewTemporaryArray = new int[(TotalPeople + 1) / 2];
+            int NewTemporaryArrayIndex = 0;
 
             for (int index = 0; index < TotalPeople; index += 2)
             {
 
-                NewArray[NewArrayIndex] = Number[index];
-                NewArrayIndex++;
+                NewTemporaryArray[NewTemporaryArrayIndex] = Number[index];
+                NewTemporaryArrayIndex++;
             }
 
             if (TotalPeople % 2 == 0)
-                return LastManStanding(NewArray);
+                return LastManStanding(NewTemporaryArray);
             else
             {
-                int[] NewArray2 = new int[(TotalPeople + 1) / 2];
-                for (int index = 1; index < NewArrayIndex; index++)
+                int[] NewTemporaryArray22 = new int[(TotalPeople + 1) / 2];
+                for (int index = 1; index < NewTemporaryArrayIndex; index++)
                 {
-                    NewArray2[index] = NewArray[index - 1];
-                    NewArray2[0] = NewArray[index];
+                    NewTemporaryArray[index] = NewArray[index - 1];
+                    NewTemporaryArray[0] = NewArray[index];
                 }
-                return LastManStanding(NewArray2);
+                return LastManStanding(NewTemporaryArray2);
 
             }
 
